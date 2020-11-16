@@ -2,13 +2,12 @@ name: Python package
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -29,11 +28,11 @@ jobs:
         make install test clean
 
   deploy_heroku:
-    runs-on: ubuntu-latest
-    steps:
+   runs-on: ubuntu-latest
+   steps:
      - uses: actions/checkout@v2
      - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
-      with:
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: "motivationn" # Must be unique in Heroku
-        heroku_email: "ebhdz@hotmail.com"
+       with:
+         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+         heroku_app_name: "motivationn" # Must be unique in Heroku
+         heroku_email: "ebhdz@hotmail.com"
