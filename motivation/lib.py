@@ -48,9 +48,9 @@ def clean_data(data):
     data.loc[:, 'Frequency'] = data['Frequency'].map(drows)
     return data
 
-  def try_me():
-    response = requests.get("https://zenquotes.io/api/random")
-    return response.json()[0]['q']
+def try_me():
+  response = requests.get("https://zenquotes.io/api/random")
+  return response.json()[0]['q']
 
 
 if __name__ == '__main__':
